@@ -294,7 +294,7 @@ class GRB(object):
 
     def load_file(
         self, filename, resolution=0.064, data_type=None, bin=True, names=None
-    ):
+        ):
         """
         Load a single GBM data file (TTE, CSPEC, or CTIME) and incorporate it into the
         current object's detector data collection.
@@ -425,7 +425,7 @@ class GRB(object):
 
     def get_trigger_data(
         self, name=None, data_type="tte", detectors=None, clobber=False
-    ):
+        ):
         """
         Download trigger data for the current GRB using TriggerFtp.
 
@@ -850,7 +850,7 @@ class GRB(object):
         method="bin_by_time",
         time_ref=0.0,
         load_rsp2=True,
-    ):
+        ):
 
         if detectors is None:
             self.detectors = self.trigger_detectors
@@ -901,7 +901,7 @@ class GRB(object):
         method="bin_by_time",
         time_ref=0.0,
         load_rsp2=True,
-    ):
+        ):
 
         if detectors is None:
             self.detectors = self.trigger_detectors
@@ -994,7 +994,7 @@ class GRB(object):
         src_range=None,
         energy_range_nai=None,
         energy_range_bgo=None,
-    ):
+        ):
 
         self.detectors = detectors or self.detectors
 
@@ -1102,7 +1102,7 @@ class GRB(object):
         ax=None,
         plot_bkgd=True,
         show_bblocks=False,
-    ):
+        ):
 
         detectors = detectors or self.detectors
         data = data or self.data
@@ -1287,7 +1287,7 @@ class GRB(object):
         energy_range_bgo=None,
         interactive=False,
         time_ref=0.0,
-    ):
+        ):
 
         detectors = detectors or self.detectors
         data = data or self.data
@@ -1445,7 +1445,7 @@ class GRB(object):
         relative_time=True,
         hide_src=False,
         hide_bkgd=False,
-    ):
+        ):
 
         self.detectors = detectors or self.detectors
 
@@ -1719,7 +1719,7 @@ class GRB(object):
         view_range=None,
         plot_residuals=True,
         plot_fit=True,
-    ):
+        ):
 
         data_lcs = self.data.to_lightcurve(
             nai_kwargs={"energy_range": self.energy_range_nai},
@@ -2096,30 +2096,6 @@ class GRB(object):
             Sequence indicating which model parameters are free (True) or fixed (False).
             If provided, assigned to fit_model.free before fitting.
 
-        Behavior and side-effects
-        -------------------------
-        - Updates self.models to the provided models list if non-empty.
-        - Calls self.data.to_pha(...) to build PHA objects (uses instance attributes
-          for time/energy ranges in the current code).
-        - Prepares instrument responses: if self.rsp2 is present it interpolates them
-          to PHA times and builds self.rsp as a GbmDetectorCollection; otherwise uses
-          self.rsp assumed to be set already.
-        - Optionally rebins responses if self.spec_rebin_factor is set.
-        - Instantiates one of SpectralFitterPgstat, SpectralFitterCstat, or
-          SpectralFitterChisq according to `stat` (method="TNC").
-        - Builds a composite model by resolving model names via self.resolve_spectral_model.
-        - Applies provided default_values and free masks to the model if supplied.
-        - If use_previous_fit is True, copies previous fit parameter values into the
-          default values for free parameters.
-        - Performs the fit via self.specfitter.fit(fit_model, options={"maxiter": 10000}).
-        - Computes asymmetric parameter errors with cl=0.9 and integrates the fitted
-          model over 10-1000 keV to obtain:
-            - self.photon_flux (photons s^-1 cm^-2)
-            - self.energy_flux (erg s^-1 cm^-2)
-        - Prints a formatted parameter/error table and basic fit statistics.
-        - Optionally plots the fit and/or creates/updates a FitPlotter via self._fit_plotter.
-        - Stores the fitted model in self.fit_model and keeps self.specfitter updated.
-
         Return
         ------
         float or None
@@ -2295,7 +2271,7 @@ class GRB(object):
 
     def plot_spectral_fit(
         self, view="counts", ax=None, show_data=True, show_residuals=True
-    ):
+        ):
 
         if ax is None:
             self.model_plot = ModelFit(
@@ -2325,7 +2301,7 @@ class GRB(object):
         energy_range_nai=None,
         energy_range_bgo=None,
         plot_selections=False,
-    ):
+        ):
 
         models = [
             "band",
@@ -4362,6 +4338,11 @@ class GRB(object):
 
         lags = correlation_lags(len(rates_low), len(rates_high), mode="full") * dt[0]
         ccf /= np.std(rates_low) * np.std(rates_high) * len(rates_low)
+        
+        # Apply lag_range filter
+        mask = (lags >= lag_range[0]) & (lags <= lag_range[1])
+        lags = lags[mask]
+        ccf = ccf[mask]
 
         # Plot the cross-correlation function
         ax2.step(
