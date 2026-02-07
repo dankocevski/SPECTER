@@ -121,7 +121,7 @@ grb.show_gui()
 # Or open a single detector window
 grb.show_gui(detector="n3")
 ```
-
+![orbit plot](docs/images/160509374_n3_gui.png)
 
 ## Bayesian blocks example
 
