@@ -28,7 +28,7 @@ Example (pip):
 ```bash
 pip install gdt-core gdt-fermi numpy scipy matplotlib astropy platformdirs PyQt6
 ```
-or simply
+or simply:
 
 ```bash
 pip install -r requirements.txt
