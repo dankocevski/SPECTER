@@ -1,6 +1,6 @@
 # SPECTER
 
-The Spectral and Temporal analysis for Energetic Radiation (SPECTER) toolkit is a Python library for **Fermi/GBM gamma-ray burst (GRB) analysis**, built on top of the Gamma-ray Data Tools (GDT). It provides a single high-level `GRB` class that wraps data I/O, background modeling, light-curve and spectral analysis, and common GRB diagnostics. Optional PyQt-based GUI windows support interactive selections and visualization.
+The Spectral and Temporal analysis for Energetic Radiation (SPECTER) toolkit is a Python library for **Fermi/GBM gamma-ray burst (GRB) analysis**, built on top of the **Gamma-ray Data Tools (GDT)**. It provides a single high-level `GRB` class that wraps data I/O, background modeling, light-curve and spectral analysis, and common GRB diagnostics. Optional PyQt-based GUI windows support interactive selections and visualization.
 
 ## Key capabilities
 - Load GBM **TTE**, **CSPEC**, and **CTIME** products
