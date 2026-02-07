@@ -62,7 +62,7 @@ uv pip install -r requirements.txt
 ```
 
 ## Data directory configuration
-SPECTER stores data using `platformdirs` by default. Default `platformdirs` locations (app name: `specter`):
+SPECTER stores data using `platformdirs` by default.  The default `platformdirs` locations (app name: `specter`) are:
 - macOS: `~/Library/Application Support/specter`
 - Windows: `C:\\Users\\<user>\\AppData\\Roaming\\specter`
 - Linux: `~/.local/share/specter`
