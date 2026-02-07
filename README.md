@@ -61,6 +61,18 @@ source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
 
+## Data directory configuration
+SPECTER stores data using `platformdirs` by default. You can override the data directory in two ways:
+
+1. **Environment variable**
+   - `SPECTER_DATA_DIR=/path/to/data`
+2. **Config file**
+   - `~/.config/specter/config.json`
+   - Example:
+     ```json
+     {"data_dir": "/path/to/data"}
+     ```
+
 ## Quick start
 
 ```python
@@ -129,18 +141,6 @@ grb.plot_orbit()
 # Optionally save the plot to the data directory
 grb.plot_orbit(save=True)
 ```
-
-## Data directory configuration
-SPECTER stores data using `platformdirs` by default. You can override the data directory in two ways:
-
-1. **Environment variable**
-   - `SPECTER_DATA_DIR=/path/to/data`
-2. **Config file**
-   - `~/.config/specter/config.json`
-   - Example:
-     ```json
-     {"data_dir": "/path/to/data"}
-     ```
 
 ## Repository layout
 - **specter.py** — primary `GRB` class and core analysis routines
