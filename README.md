@@ -146,6 +146,7 @@ grb.plot_orbit()
 # Optionally save the plot to the data directory
 grb.plot_orbit(save=True)
 ```
+![orbit plot](docs/images/orbit_plot_484477130.png)
 
 ## Repository layout
 - **specter.py** — primary `GRB` class and core analysis routines
