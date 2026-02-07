@@ -2045,7 +2045,7 @@ class GRB(object):
         stat="PG-Stat",
         default_values=None,
         use_previous_fit=False,
-        create_gui=False,
+        show_gui=False,
         free=None,
         ):
         """
@@ -2055,7 +2055,7 @@ class GRB(object):
         performs a fit with a chosen statistic, computes fluxes and asymmetric
         parameter errors, and updates several attributes on the instance. It prints
         a summary table of fitted parameters and basic fit diagnostics. Optionally
-        it can plot the fit and create/update a GUI fit plotter.
+        it can plot the fit and show/update a GUI fit plotter.
 
         Parameters
         ----------
@@ -2089,7 +2089,7 @@ class GRB(object):
             If True, use the last fit's optimized parameters as initial guesses for
             the free parameters of the new model (reads self.specfitter.parameters).
             Default False.
-        create_gui : bool, optional
+        show_gui : bool, optional
             If True, create or update a FitPlotter GUI (requires class FitPlotter
             and GUI dependencies). Default False.
         free : sequence of bool, optional
@@ -2284,16 +2284,13 @@ class GRB(object):
         # if self._fit_plotter is not None:
         #     self.update_gui_windows()
 
-        if create_gui == True:
+        if show_gui == True:
             if self._fit_plotter is None:
                 self._fit_plotter = FitPlotter(grb=self)
                 self._fit_plotter.show()
             else:
                 self._fit_plotter.update_plot()
-
-        # elif show_gui is True:
-        #     QTimer.singleShot(0, self.show_gui)
-
+                
         return self.specfitter.statistic
 
     def plot_spectral_fit(
