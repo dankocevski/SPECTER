@@ -143,6 +143,7 @@ grb.fit_backgrounds(order=1)
 grb.fit_spectra(models=["band"], stat="PG-Stat")
 ```
 ![specra](docs/images/160509374_n3_spectral_fit.png)
+<img src="docs/images/160509374_n3_spectral_fit.png" width="75%">
 
 ## T90 calculation
 ```
