@@ -113,6 +113,7 @@ grb = specter.GRB("160509374")
 grb.load_tte(bin=True)
 
 # Launch GUI windows (PHA viewers; FitPlotter if a spectral fitter exists)
+grb.view_range=(-33,102)
 grb.show_gui()
 
 # Or open a single detector window
