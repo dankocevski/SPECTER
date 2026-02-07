@@ -97,7 +97,7 @@ grb.show_gui()
 # Or open a single detector window
 grb.show_gui(detector="n3")
 ```
-![b](docs/images/160509374_n3_gui2.png)
+![gui](docs/images/160509374_n3_gui2.png)
 
 > Tip: All of analysis routines packaged with SPECTER can be performed either in the CLI or in the GUI windows.
 
@@ -119,6 +119,8 @@ grb.bkgd_range = [[(-150, -25), (100, 200)]]
 # Fit background
 grb.fit_backgrounds(order=1)
 ```
+![background](docs/images/160509374_n3_background.png)
+
 > Tip: Many methods are interactive and may open Qt or Matplotlib windows for selection and visualization.
 
 ## Spectral fitting
@@ -140,6 +142,7 @@ grb.bkgd_range = [[(-150, -25), (100, 200)]]
 grb.fit_backgrounds(order=1)
 grb.fit_spectra(models=["band"], stat="PG-Stat")
 ```
+![specra](docs/images/160509374_n3_spectral_fit.png)
 
 ## T90 calculation
 ```
