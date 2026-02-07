@@ -87,6 +87,49 @@ eiso = grb.calc_eiso(redshift=1.23)
 
 > Tip: Many methods are interactive and may open Qt or Matplotlib windows for selection and visualization.
 
+## GUI example
+
+```python
+import specter
+
+grb = specter.GRB("160509374")
+grb.load_tte(bin=True)
+
+# Launch GUI windows (PHA viewers; FitPlotter if a spectral fitter exists)
+grb.show_gui()
+
+# Or open a single detector window
+grb.show_gui(detector="n3")
+```
+
+## Bayesian blocks example
+
+```python
+import specter
+
+grb = specter.GRB("160509374")
+
+# Load and bin TTE data (Bayesian blocks expects evenly binned data)
+grb.load_tte(bin=True, resolution=0.064)
+
+# Run Bayesian blocks on a detector and show the plot
+grb.bayesian_blocks(detector="n3", p0=0.05, show_plot=True)
+```
+
+## Fermi orbit plot example
+
+```python
+import specter
+
+grb = specter.GRB("160509374")
+
+# Plot the spacecraft orbit around the trigger time
+grb.plot_orbit()
+
+# Optionally save the plot to the data directory
+grb.plot_orbit(save=True)
+```
+
 ## Data directory configuration
 SPECTER stores data using `platformdirs` by default. You can override the data directory in two ways:
 
