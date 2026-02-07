@@ -112,8 +112,10 @@ import specter
 grb = specter.GRB("160509374")
 grb.load_tte(bin=True)
 
-# Launch GUI windows (PHA viewers; FitPlotter if a spectral fitter exists)
+# Set the default view range
 grb.view_range=(-33,102)
+
+# Launch GUI windows (PHA viewers; FitPlotter if a spectral fitter exists)
 grb.show_gui()
 
 # Or open a single detector window
@@ -131,9 +133,13 @@ grb = specter.GRB("160509374")
 # Load and bin TTE data (Bayesian blocks expects evenly binned data)
 grb.load_tte(bin=True, resolution=0.064)
 
+# Set the default view range
+grb.view_range=(-10,50)
+
 # Run Bayesian blocks on a detector and show the plot
 grb.bayesian_blocks(detector="n3", p0=0.05, show_plot=True)
 ```
+![orbit plot](docs/images/160509374_n3_bblocks.png)
 
 ## Fermi orbit plot example
 
