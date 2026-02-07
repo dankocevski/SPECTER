@@ -4959,7 +4959,7 @@ class GRB(object):
         fluence = energy_flux * self.t90
 
         print("\nCalculating Eiso...")
-        print("Using k-correction energy range: %.2f - %.2f keV (rest frame)" % (emin_rest, emax_rest))
+        print("\nUsing k-correction energy range: %.2f - %.2f keV (rest frame)" % (emin_rest, emax_rest))
         print("\nEnergy Flux = %.3e erg/s/cm^2" % energy_flux)
         print("T90 = %.3f sec" % self.t90)
         print("Fluence = %.3e erg/cm^2" % fluence)

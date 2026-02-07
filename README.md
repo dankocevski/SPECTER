@@ -157,4 +157,4 @@ grb.plot_orbit(save=True)
 - Some plots and GUI tools require a working Qt backend.
 
 ## License
-TBD
+Apache License 2.0. See [license.txt](license.txt).
