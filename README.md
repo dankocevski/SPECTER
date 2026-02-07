@@ -165,6 +165,8 @@ grb.fit_backgrounds(order=1)
 # Calculate t90
 grb.calc_t90()
 ```
+![t90](docs/images/160509374_n3_t90.png)
+
 
 # Energetics calculations
 ```
