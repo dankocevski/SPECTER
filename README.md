@@ -139,7 +139,7 @@ grb.view_range=(-10,50)
 # Run Bayesian blocks on a detector and show the plot
 grb.bayesian_blocks(detector="n3", p0=0.05, show_plot=True)
 ```
-![orbit plot](docs/images/160509374_n3_bblocks.png)
+![orbit plot](docs/images/160509374_n3_bblocks2.png)
 
 ## Fermi orbit plot example
 
