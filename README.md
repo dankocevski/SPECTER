@@ -121,12 +121,13 @@ grb.show_gui()
 # Or open a single detector window
 grb.show_gui(detector="n3")
 ```
-![orbit plot](docs/images/160509374_n3_gui2.png)
+![b](docs/images/160509374_n3_gui2.png)
 
 ## Bayesian blocks example
 
 ```python
 import specter
+
 
 grb = specter.GRB("160509374")
 
@@ -140,6 +141,28 @@ grb.view_range=(-10,50)
 grb.bayesian_blocks(detector="n3", p0=0.05, show_plot=True, show_episodes=True)
 ```
 ![orbit plot](docs/images/160509374_n3_bblocks2.png)
+
+## Lag analysis example
+
+```python
+import specter
+
+grb = specter.GRB("160509374")
+
+# Load and bin TTE data (Bayesian blocks expects evenly binned data)
+grb.load_tte(bin=True, resolution=0.064)
+
+# Set the default view range
+grb.view_range=(-10,50)
+
+# Fit background and spectra
+grb.bkgd_range = [[(-150, -25), (100, 200)]]
+grb.fit_backgrounds(order=1)
+
+# Perform a lag analysis between the 25-50 keV and 100-300 keV light data
+grb.lag_analysis(analysis_range=(-10,50), lag_range=[-1,1], low_energy=(25, 50), high_energy=(100, 300))
+```
+![lag plot](docs/images/160509374_n3_lag.png)
 
 ## Fermi orbit plot example
 
