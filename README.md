@@ -83,33 +83,9 @@ You can override the data directory in two ways:
 ```python
 import specter
 
-# Create a GRB object
 grb = specter.GRB("160509374")
 
-# Load TTE data
-grb.load_tte(bin=True)
-
-# Define time ranges
-grb.src_range = (14, 17)
-grb.bkgd_range = [[(-150, -25), (100, 200)]]
-
-# Fit background and spectra
-grb.fit_backgrounds(order=1)
-grb.fit_spectra(models=["band"], stat="PG-Stat")
-
-# Compute T90 and energetics
-grb.calc_t90()
-eiso = grb.calc_eiso(redshift=1.23)
-```
-
-> Tip: Many methods are interactive and may open Qt or Matplotlib windows for selection and visualization.
-
-## GUI example
-
-```python
-import specter
-
-grb = specter.GRB("160509374")
+# Download and load the tte data; the default binning is 0.064 sec
 grb.load_tte(bin=True)
 
 # Set the default view range
@@ -122,6 +98,94 @@ grb.show_gui()
 grb.show_gui(detector="n3")
 ```
 ![b](docs/images/160509374_n3_gui2.png)
+
+> Tip: All of analysis routines packaged with SPECTER can be performed either in the CLI or in the GUI windows.
+
+## Background fitting
+```python
+import specter
+
+# Create a GRB object
+grb = specter.GRB("160509374")
+
+# Load TTE data
+grb.load_tte(bin=True)
+
+# Define time ranges
+grb.view_range=(-10,50)
+grb.src_range = (14, 17)
+grb.bkgd_range = [[(-150, -25), (100, 200)]]
+
+# Fit background
+grb.fit_backgrounds(order=1)
+```
+> Tip: Many methods are interactive and may open Qt or Matplotlib windows for selection and visualization.
+
+## Spectral fitting
+```python
+import specter
+
+# Create a GRB object
+grb = specter.GRB("160509374")
+
+# Load TTE data
+grb.load_tte(bin=True)
+
+# Define time ranges
+grb.view_range=(-33,102)
+grb.src_range = (14, 17)
+grb.bkgd_range = [[(-150, -25), (100, 200)]]
+
+# Fit background and spectra
+grb.fit_backgrounds(order=1)
+grb.fit_spectra(models=["band"], stat="PG-Stat")
+```
+
+## T90 calculation
+```
+import specter
+
+# Create a GRB object
+grb = specter.GRB("160509374")
+
+# Load TTE data
+grb.load_tte(bin=True)
+
+# Define time ranges
+grb.view_range=(-33,102)
+grb.src_range = (14, 17)
+grb.bkgd_range = [[(-150, -25), (100, 200)]]
+
+# Fit background
+grb.fit_backgrounds(order=1)
+
+# Calculate t90
+grb.calc_t90()
+```
+
+# Energetics calculations
+```
+import specter
+
+# Create a GRB object
+grb = specter.GRB("160509374")
+
+# Load TTE data
+grb.load_tte(bin=True)
+
+# Define time ranges
+grb.view_range=(-33,102)
+grb.src_range = (14, 17)
+grb.bkgd_range = [[(-150, -25), (100, 200)]]
+
+# Fit background and spectra
+grb.fit_backgrounds(order=1)
+grb.fit_spectra(models=["band"], stat="PG-Stat")
+
+# Calcualte t90 and the k-corrected Eiso
+grb.calc_t90()
+eiso = grb.calc_eiso(redshift=1.23)
+```
 
 ## Bayesian blocks example
 
