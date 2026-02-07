@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Logs / temp
+*.log
+tmp/
+.cache/
+
+# Data products (adjust to your reality)
+data/
+outputs/
+results/
+*.fits
+*.fit
+*.h5
+*.hdf5
+*.npz
+

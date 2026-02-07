@@ -1,0 +1,8 @@
+gdt-core
+gdt-fermi
+numpy
+scipy
+matplotlib
+astropy
+platformdirs
+PyQt6
