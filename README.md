@@ -4,7 +4,7 @@ The Spectral and Temporal analysis for Energetic Radiation (SPECTER) toolkit is 
 
 The toolkit it built on PyQt to support interactive selections and visualization. The GUI windows and command line interface (CLI) can work simultaneously, with edits made in the CLI being reflected immediately in the GUI. 
 
-SPECTER is intended to be a replacement to the venerable RMFIT spectral fitting package.
+SPECTER is intended to be a replacement to the venerable RMFIT spectral fitting package and supercedes the GSpec software package.
 
 ## Key capabilities
 - Load GBM **TTE**, **CSPEC**, and **CTIME** products
