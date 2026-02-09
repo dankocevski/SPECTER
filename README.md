@@ -99,7 +99,7 @@ grb.show_gui(detector="n3")
 ```
 ![gui](docs/images/160509374_n3_gui2.png)
 
-> Tip: All of analysis routines packaged with SPECTER can be performed either in the CLI or in the GUI windows.
+> Tip: All of the analysis routines packaged with SPECTER can be performed either through the CLI or from the GUI windows.
 
 ## Background fitting
 ```python
