@@ -1,6 +1,6 @@
 # SPECTER
 
-The Spectral and Temporal analysis for Energetic Radiation (SPECTER) toolkit is a graphical user interface (GUI) frontend to the **Gamma-ray Data Tools (GDT)**. It provides a single high-level `GRB` class that wraps data I/O, background modeling, light-curve and spectral analysis, and common GRB diagnostics. The toolkit it built on PyQt to support interactive selections and visualization. The GUI windows and command line interface (CLI) can work simultaneously, with edits made in the CLI being reflected immediately in the GUI. SPECTER is intended to be a replacement to the venerable RMFIT spectral fitting package.
+The Spectral and Temporal analysis for Energetic Radiation (SPECTER) toolkit is a graphical user interface (GUI) to the **Gamma-ray Data Tools (GDT)**. It provides a single high-level `GRB` class that wraps data I/O, background modeling, light-curve and spectral analysis, and common GRB diagnostics. The toolkit it built on PyQt to support interactive selections and visualization. The GUI windows and command line interface (CLI) can work simultaneously, with edits made in the CLI being reflected immediately in the GUI. SPECTER is intended to be a replacement to the venerable RMFIT spectral fitting package.
 
 ## Key capabilities
 - Load GBM **TTE**, **CSPEC**, and **CTIME** products
