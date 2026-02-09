@@ -3001,8 +3001,8 @@ class GRB(object):
 
         Example
         -------
-        Assuming `spec` is an instance that implements get_lightcurve_counts:
-            result = spec.calc_t90(analysis_range=(0, 20), detectors=['n0','n1'],
+        Assuming `grb` is an instance that implements get_lightcurve_counts:
+            result = grb.calc_t90(analysis_range=(0, 20), detectors=['n0','n1'],
                                    plo=0.05, phi=0.95, show_plot=True,
                                    energy_range=(50.0, 300.0))
             # result -> {"T05": ..., "T95": ..., "T90": ..., "N_counts": ...}
@@ -4234,7 +4234,7 @@ class GRB(object):
         Example
         -------
         # Typical call:
-        obj.lag_analysis(detectors=['NaI0','NaI3'], low_energy=(25,50), high_energy=(100,300),
+        grb.lag_analysis(detectors=['NaI0','NaI3'], low_energy=(25,50), high_energy=(100,300),
                                          analysis_range=(0,20), poly_fit=True, gaussian_fit=True, fit_range=(-0.25,0.25))
 
         """
@@ -4533,7 +4533,7 @@ class GRB(object):
         Example
         -------
         # Example usage (conceptual):
-        # self.calc_hardness_ratio(detectors=['n0','n1'], low_energy=(25,50),
+        # grb.calc_hardness_ratio(detectors=['n0','n1'], low_energy=(25,50),
         #                          high_energy=(100,300), analysis_range=(t0,t1),
         #                          subtract_bkgd=True, sum_counts=False)
         """
