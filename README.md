@@ -67,7 +67,7 @@ SPECTER stores downloaded data using `platformdirs` by default.  The default `pl
 - Windows: `C:\\Users\\<user>\\AppData\\Roaming\\specter`
 - Linux: `~/.local/share/specter`
 
-You can override the data directory in two ways:
+You can override the default data directory in two ways:
 
 1. **Environment variable**
    - `SPECTER_DATA_DIR=/path/to/data`
